@@ -77,17 +77,28 @@ if (turnoEspecialidadSelect) {
   turnoEspecialidadSelect.addEventListener('change', actualizarProfesionales);
 }
 
+// ═══ NÚMERO DE WHATSAPP POR ESPECIALIDAD — Psicología y Bioquímica tienen línea propia ═══
+const WHATSAPP_POR_ESPECIALIDAD = {
+  'Psicología': '5493425031430',
+  'Bioquímica': '5493425160972',
+};
+const WHATSAPP_TURNOS_DEFAULT = '5493424670858';
+
 // ═══ PEDIR TURNO — arma el mensaje de WhatsApp con especialidad + profesional + obra social ═══
 function pedirTurno() {
   const esp = document.getElementById('turnoEspecialidad').value;
   const prof = document.getElementById('turnoProfesional').value;
   const os = document.getElementById('turnoObraSocial').value;
-  let msg = 'Hola, quiero pedir un turno';
+  const esEspecialidadExterna = Boolean(WHATSAPP_POR_ESPECIALIDAD[esp]);
+  const numero = WHATSAPP_POR_ESPECIALIDAD[esp] || WHATSAPP_TURNOS_DEFAULT;
+  let msg = esEspecialidadExterna
+    ? 'Hola, vengo de la web del Instituto de Investigaciones Biomédicas. Necesito un turno'
+    : 'Hola, quiero pedir un turno';
   if (esp) msg += ` en ${esp}`;
   msg += '.';
   if (prof) msg += ` Si es posible, con ${prof}.`;
   if (os) msg += ` Mi obra social es ${os}.`;
-  const url = `https://wa.me/5493424670858?text=${encodeURIComponent(msg)}`;
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
   window.open(url, '_blank');
 }
 
