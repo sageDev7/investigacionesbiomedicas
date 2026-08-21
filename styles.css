@@ -251,6 +251,7 @@ nav.desk a.active::after { width: 100%; background: var(--brown-mid); }
 .historia-inner h2 { font-size: clamp(1.9rem, 3vw, 2.4rem); margin-bottom: 1.4rem; }
 .historia-inner p { color: var(--ink-soft); line-height: 1.85; font-size: 1.04rem; margin-bottom: 1.4rem; }
 .historia-inner p:last-child { margin-bottom: 0; }
+.historia-inner p.eyebrow { font-size: .78rem; margin-bottom: 1rem; }
 
 /* ═══ INVESTIGACIÓN — foto de fondo ═══ */
 .research-band { position: relative; overflow: hidden; background: var(--brown-dark); text-align: center; }
@@ -260,6 +261,7 @@ nav.desk a.active::after { width: 100%; background: var(--brown-mid); }
 .research-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: 0 24px; }
 .research-inner h2 { color: var(--cream-soft); font-size: clamp(1.9rem, 3vw, 2.4rem); margin-bottom: 1.4rem; }
 .research-inner > p { color: rgba(237,228,204,.8); line-height: 1.85; font-size: 1.04rem; margin-bottom: 2rem; }
+.research-inner p.eyebrow { font-size: .78rem; color: var(--yellow); margin-bottom: 1rem; }
 .research-tags { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px; }
 .research-tags span {
   font-family: 'Inter'; font-weight: 700; font-size: .82rem; text-transform: uppercase; letter-spacing: .06em;
@@ -271,6 +273,7 @@ nav.desk a.active::after { width: 100%; background: var(--brown-mid); }
 .director-inner { max-width: 640px; margin: 0 auto; padding: 0 24px; }
 .director-inner h2 { font-size: clamp(1.9rem, 3vw, 2.3rem); margin-bottom: 1.2rem; }
 .director-inner p { color: var(--ink-soft); line-height: 1.8; font-size: 1.02rem; }
+.director-inner p.eyebrow { font-size: .78rem; margin-bottom: 1rem; }
 
 /* ═══ NUESTROS PRINCIPIOS ═══ */
 .values { background: var(--cream); }
