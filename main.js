@@ -48,7 +48,7 @@ const PROFESIONALES_POR_ESPECIALIDAD = {
   'Endocrinología y Diabetes': ['Dr. Sergio Luis García', 'Dra. Viviana E. Parra', 'Dr. José M. Echagüe', 'Dr. Enrique M. Zilli', 'Dr. Sebastián Pila'],
   'Nutrición y Medicina Funcional': ['Dra. M. Martha Filippi', 'Lic. Jimena Benavides'],
   'Endocrinología Infantil': ['Prof. Dr. Rodolfo Rey'],
-  'Kinesiología': ['Lic. M. Florencia Bassi', 'Lic. Florencia Alia'],
+  'Kinesiología': ['Lic. M. Florencia Bassi', 'Lic. Florencia Alain'],
   'Psicología': ['Lic. Josefina Casabella'],
   'Medicina Estética': ['Dra. Cynthia Confalonieri'],
   'Bioquímica': ['Laboratorios Alkemy'],
