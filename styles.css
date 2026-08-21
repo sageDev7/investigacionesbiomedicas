@@ -194,6 +194,17 @@ nav.desk a.active::after { width: 100%; background: var(--brown-mid); }
 /* ═══ CONVENIOS — ticker de obras sociales ═══ */
 .convenios { background: var(--cream); padding: 60px 0; text-align: center; }
 .convenios .sec-head { margin-bottom: 20px; max-width: 900px; }
+
+.convenios-featured {
+  display: inline-flex; flex-direction: column; align-items: center; gap: 18px;
+  background: var(--cream-soft); border: 1.5px solid var(--line-strong);
+  padding: 30px 48px; margin: 20px auto 48px;
+}
+.convenios-featured-tag {
+  font-family: 'Inter'; font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; color: var(--brown-mid);
+}
+.convenios-featured img { height: 52px; width: auto; }
+
 .convenios-track-wrap { overflow: hidden; }
 .convenios-track { display: flex; width: max-content; align-items: center; animation: convScroll 46s linear infinite; }
 .conv-item { display: flex; align-items: center; justify-content: center; width: 170px; height: 76px; padding: 0 20px; flex: 0 0 auto; }
@@ -440,6 +451,7 @@ nav.desk a.active::after { width: 100%; background: var(--brown-mid); }
   .values-grid { grid-template-columns: 1fr; max-width: 400px; }
   .contact-item { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
   .contact-item i { margin-top: 0; }
+  .convenios-featured { padding: 26px 28px; }
   .contact-ctas { align-items: center; }
   .contact-ctas .btn { justify-content: center; width: 100%; max-width: 340px; }
   .team-card { flex-basis: 100%; max-width: 240px; }
