@@ -117,7 +117,7 @@ function pedirTurno() {
     : 'Hola, quiero pedir un turno';
   if (esp) msg += ` en ${esp}`;
   msg += '.';
-  if (prof) msg += ` Si es posible, con ${prof}.`;
+  if (prof && !esEspecialidadExterna) msg += ` Si es posible, con ${prof}.`;
   if (os) msg += ` Mi obra social es ${os}.`;
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
   window.open(url, '_blank');
