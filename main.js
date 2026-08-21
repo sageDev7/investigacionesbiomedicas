@@ -130,7 +130,7 @@ if (idStrip) {
 }
 
 // ═══ REVEAL ON SCROLL ═══
-document.querySelectorAll('.specialties-grid, .why-grid, .faq-list, .id-strip-inner').forEach(container => {
+document.querySelectorAll('.specialties-grid, .why-grid, .faq-list, .id-strip-inner, .values-grid, .team-grid').forEach(container => {
   Array.from(container.children).forEach((el, i) => {
     if (el.classList.contains('reveal')) el.style.transitionDelay = (i * 70) + 'ms';
   });
@@ -168,3 +168,30 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 revealEls.forEach(el => io.observe(el));
+
+// ═══ BUSCADOR DE EQUIPO — filtra por nombre o especialidad ═══
+const teamSearch = document.getElementById('teamSearch');
+if (teamSearch) {
+  const ACCENTS = { 'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'ü': 'u', 'ñ': 'n' };
+  const normalize = (str) => str.toLowerCase().split('').map(ch => ACCENTS[ch] || ch).join('');
+  const teamCards = document.querySelectorAll('.team-card');
+  const teamGroups = document.querySelectorAll('.team-group');
+
+  teamSearch.addEventListener('input', () => {
+    const query = normalize(teamSearch.value.trim());
+
+    teamCards.forEach(card => {
+      const groupName = card.closest('.team-group')?.querySelector('.team-group-head h3')?.textContent || '';
+      const name = card.querySelector('h4')?.textContent || '';
+      const tag = card.querySelector('.team-tag')?.textContent || '';
+      const role = card.querySelector('p')?.textContent || '';
+      const haystack = normalize(`${groupName} ${name} ${tag} ${role}`);
+      card.style.display = (!query || haystack.includes(query)) ? '' : 'none';
+    });
+
+    teamGroups.forEach(group => {
+      const anyVisible = Array.from(group.querySelectorAll('.team-card')).some(c => c.style.display !== 'none');
+      group.style.display = anyVisible ? '' : 'none';
+    });
+  });
+}
