@@ -45,10 +45,10 @@ topFloat.addEventListener('click', () => {
 
 // ═══ PROFESIONALES POR ESPECIALIDAD — filtra el select según lo elegido arriba ═══
 const PROFESIONALES_POR_ESPECIALIDAD = {
-  'Endocrinología y Diabetes': ['Dr. Sergio L. García', 'Dra. Viviana Parra', 'Dr. José Echagüe', 'Dr. Enrique Zilli', 'Dr. Sebastián Pila'],
+  'Endocrinología y Diabetes': ['Dr. Sergio Luis García', 'Dra. Viviana E. Parra', 'Dr. José M. Echagüe', 'Dr. Enrique M. Zilli', 'Dr. Sebastián Pila'],
   'Nutrición y Medicina Funcional': ['Dra. M. Martha Filippi', 'Lic. Jimena Benavides'],
   'Endocrinología Infantil': ['Prof. Dr. Rodolfo Rey'],
-  'Kinesiología': ['Lic. Florencia Bassi', 'Lic. Florencia Alia'],
+  'Kinesiología': ['Lic. M. Florencia Bassi', 'Lic. Florencia Alia'],
   'Psicología': ['Lic. Josefina Casabella'],
   'Medicina Estética': ['Dra. Cynthia Confalonieri'],
   'Bioquímica': ['Laboratorios Alkemy'],
@@ -75,6 +75,27 @@ function actualizarProfesionales() {
 
 if (turnoEspecialidadSelect) {
   turnoEspecialidadSelect.addEventListener('change', actualizarProfesionales);
+}
+
+// ═══ BOTONES "PEDIR TURNO" DE ESPECIALIDAD — preseleccionan el form al llegar ═══
+document.querySelectorAll('.spec-btn[data-especialidad]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (!turnoEspecialidadSelect) return;
+    turnoEspecialidadSelect.value = btn.dataset.especialidad;
+    actualizarProfesionales();
+  });
+});
+
+// ═══ PRESELECCIÓN VÍA URL — llegar desde equipo.html con especialidad/profesional ya elegidos ═══
+if (turnoEspecialidadSelect) {
+  const params = new URLSearchParams(window.location.search);
+  const especialidadParam = params.get('especialidad');
+  const profesionalParam = params.get('profesional');
+  if (especialidadParam && PROFESIONALES_POR_ESPECIALIDAD[especialidadParam]) {
+    turnoEspecialidadSelect.value = especialidadParam;
+    actualizarProfesionales();
+    if (profesionalParam) turnoProfesionalSelect.value = profesionalParam;
+  }
 }
 
 // ═══ NÚMERO DE WHATSAPP POR ESPECIALIDAD — Psicología y Bioquímica tienen línea propia ═══
